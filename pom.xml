@@ -14,24 +14,41 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jolbox</groupId>
     <artifactId>bonecp-parent</artifactId>
-    <version>0.7.1.RELEASE</version>
+    <version>0.7.2.PLUMBEE</version>
     <packaging>pom</packaging>
     <name>BoneCP</name>
     <description>The fast Java JDBC Database Connection pool</description>
     <url>http://jolbox.com</url>
     <inceptionYear>2009</inceptionYear>
 
-    <scm>
-       <url>http://github.com/wwadge/bonecp</url>
-       <connection>scm:git:ssh://github.com/wwadge/bonecp.git</connection>
-       <developerConnection>scm:git:ssh://git@github.com/wwadge/bonecp.git</developerConnection>
-   </scm>
+    <parent>
+        <groupId>com.plumbee</groupId>
+        <artifactId>BasePom</artifactId>
+        <version>1.0.0</version>
+    </parent>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <javac.src.version>1.6</javac.src.version>
+        <javac.target.version>1.6</javac.target.version>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
+        <implementation.build>${maven.build.timestamp}</implementation.build>
+        <scm.repository.location>scm:git:git@github.com:plumbee/bonecp.git</scm.repository.location>
+    </properties>
+
+    <scm>
+        <connection>${scm.repository.location}</connection>
+        <url>${scm.repository.location}</url>
+        <developerConnection>${scm.repository.location}</developerConnection>
+    </scm>
 
     <organization>
         <name>JolBox</name>
@@ -50,20 +67,6 @@
         <system>Launchpad</system>
         <url>https://launchpad.net/bonecp</url>
     </issueManagement>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-
-        <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Nexus Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
 
     <developers>
         <developer>
@@ -89,7 +92,7 @@
         <module>bonecp-spring</module>
         <module>bonecp-test-commons</module>
         <module>bonecp-hbnprovider</module>
-<!--         <module>bonecp-benchmark</module>  -->
+        <!--         <module>bonecp-benchmark</module>  -->
     </modules>
 
     <dependencyManagement>
@@ -109,15 +112,15 @@
             <dependency>
                 <groupId>com.jolbox</groupId>
                 <artifactId>bonecp-test-commons</artifactId>
-                <version>0.7.1.RELEASE</version>
+                <version>0.7.1.PLUMBEE-SNAPSHOT</version>
             </dependency>
 
-  			<dependency>
+            <dependency>
                 <groupId>com.jolbox</groupId>
                 <artifactId>bonecp</artifactId>
-                <version>0.7.1.RELEASE</version>
+                <version>0.7.1.PLUMBEE-SNAPSHOT</version>
             </dependency>
-            
+
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
@@ -171,9 +174,9 @@
             </dependency>
 
             <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>3.5.2-Final</version>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>3.5.2-Final</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -200,16 +203,6 @@
              -->
         </dependencies>
     </dependencyManagement>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <javac.src.version>1.6</javac.src.version>
-        <javac.target.version>1.6</javac.target.version>
-        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
-        <implementation.build>${maven.build.timestamp}</implementation.build>
-    </properties>
 
     <build>
         <pluginManagement>
@@ -338,7 +331,7 @@
                             <value>/* #ifdef JDK5</value>
                         </replacement>
                         <replacement>
-                            <token>// #endif JDK5 </token>
+                            <token>// #endif JDK5</token>
                             <value>#endif JDK5 */</value>
                         </replacement>
                     </replacements>
@@ -357,7 +350,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                 <version>2.7.2</version>
+                <version>2.7.2</version>
                 <inherited>false</inherited>
                 <configuration>
                     <forkMode>once</forkMode>
@@ -391,7 +384,7 @@
             </plugin>
         </plugins>
 
-	<extensions>
+        <extensions>
             <extension>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-provider-gitexe</artifactId>
@@ -443,21 +436,21 @@
                     </plugin>
 -->
                     <plugin>
-                    	<groupId>org.apache.maven.plugins</groupId>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-jar-plugin</artifactId>
                         <configuration>
                             <classifier>jdk5</classifier>
                         </configuration>
                     </plugin>
 
-   					<plugin>
-                    	<groupId>org.apache.felix</groupId>
-                    	<artifactId>maven-bundle-plugin</artifactId>
+                    <plugin>
+                        <groupId>org.apache.felix</groupId>
+                        <artifactId>maven-bundle-plugin</artifactId>
                         <configuration>
                             <classifier>jdk5</classifier>
                         </configuration>
                     </plugin>
-                    
+
                     <plugin>
                         <groupId>com.google.code.maven-replacer-plugin</groupId>
                         <artifactId>maven-replacer-plugin</artifactId>
@@ -592,7 +585,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>surefire-report-maven-plugin</artifactId>
-                  <version>2.7.2</version>
+                <version>2.7.2</version>
                 <!--  <version>2.6</version>  -->
                 <inherited>true</inherited>
             </plugin>
@@ -603,12 +596,6 @@
             </plugin>
         </plugins>
     </reporting>
-    
-<repositories>
-  <repository>
-    <id>jboss-public-repository-group</id>
-    <name>JBoss Public Repository Group</name>
-    <url>http://repository.jboss.org/nexus/content/groups/public</url>
-  </repository>
-</repositories>
+
+
 </project>
