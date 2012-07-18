@@ -11,3 +11,17 @@ bin/
 *.REMOTE.*
 
 
+/bonecp-benchmark/bonecp-benchmark.eml
+/bonecp-benchmark/bonecp-benchmark.iml
+/bonecp-hbnprovider/bonecp-provider.eml
+/bonecp-hbnprovider/bonecp-provider.iml
+/bonecp-parent.eml
+/bonecp-parent.iml
+/bonecp-spring/bonecp-spring.eml
+/bonecp-spring/bonecp-spring.iml
+/bonecp-test-commons/bonecp-test-commons.eml
+/bonecp-test-commons/bonecp-test-commons.iml
+/bonecp/bonecp.eml
+/bonecp/bonecp.iml
+/plumbee-bonecp.ipr
+/plumbee-bonecp.iws
