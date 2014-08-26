@@ -27,12 +27,6 @@
     <url>http://jolbox.com</url>
     <inceptionYear>2009</inceptionYear>
 
-    <parent>
-        <groupId>com.plumbee</groupId>
-        <artifactId>BasePom</artifactId>
-        <version>2.9</version>
-    </parent>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
@@ -49,6 +43,17 @@
         <url>${scm.repository.location}</url>
         <developerConnection>${scm.repository.location}</developerConnection>
     </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <url>http://nexus.plumbee.co.uk:8081/nexus/content/repositories/plumbeerel/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <url>http://nexus.plumbee.co.uk:8081/nexus/content/repositories/plumbee/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <organization>
         <name>JolBox</name>
