@@ -20,18 +20,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jolbox</groupId>
     <artifactId>bonecp-parent</artifactId>
-    <version>0.7.2.PLUMBEE</version>
+    <version>0.7.2.PLUMBEE-2</version>
     <packaging>pom</packaging>
     <name>BoneCP</name>
     <description>The fast Java JDBC Database Connection pool</description>
     <url>http://jolbox.com</url>
     <inceptionYear>2009</inceptionYear>
-
-    <parent>
-        <groupId>com.plumbee</groupId>
-        <artifactId>BasePom</artifactId>
-        <version>1.0.0</version>
-    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -112,13 +106,13 @@
             <dependency>
                 <groupId>com.jolbox</groupId>
                 <artifactId>bonecp-test-commons</artifactId>
-                <version>0.7.1.PLUMBEE-SNAPSHOT</version>
+                <version>0.7.2.PLUMBEE-2</version>
             </dependency>
 
             <dependency>
                 <groupId>com.jolbox</groupId>
                 <artifactId>bonecp</artifactId>
-                <version>0.7.1.PLUMBEE-SNAPSHOT</version>
+                <version>0.7.2.PLUMBEE-2</version>
             </dependency>
 
             <dependency>
